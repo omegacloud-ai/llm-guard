@@ -4,12 +4,7 @@ import importlib
 from functools import lru_cache
 from typing import Literal, get_args
 
-from transformers import (
-    PreTrainedModel,
-    PreTrainedTokenizer,
-    PreTrainedTokenizerFast,
-    TFPreTrainedModel,
-)
+from transformers import PreTrainedModel, PreTrainedTokenizer, PreTrainedTokenizerFast
 
 from .exception import LLMGuardValidationError
 from .model import Model
@@ -155,7 +150,7 @@ ClassificationTask = Literal["text-classification", "zero-shot-classification"]
 
 def pipeline(
     task: str,
-    model: PreTrainedModel | TFPreTrainedModel,
+    model: PreTrainedModel,
     tokenizer: PreTrainedTokenizer | PreTrainedTokenizerFast,
     **kwargs,
 ):
