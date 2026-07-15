@@ -143,7 +143,7 @@ def get_analyzer(
 ) -> AnalyzerEngine:
     nlp_engine = _get_nlp_engine(languages=supported_languages)
 
-    registry = RecognizerRegistry()
+    registry = RecognizerRegistry(supported_languages=supported_languages)
     registry.load_predefined_recognizers(nlp_engine=nlp_engine)
     registry = _add_recognizers(registry, regex_groups, custom_names, supported_languages)
     registry.add_recognizer(recognizer)
